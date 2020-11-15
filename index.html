@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приложение для добавления / удаления форм</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="form-list">
+        <form @submit.prevent="addNewItem">
+            <button>Add</button>
+        </form>
+        <ol>
+            <li 
+                is="form-item"
+                v-for="(item, index) in items"
+                :key="item.id"
+                @remove="items.splice(index, 1)">
+            </li>
+        </ol>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
